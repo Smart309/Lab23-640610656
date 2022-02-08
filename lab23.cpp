@@ -1,4 +1,4 @@
-// [Missing Code 1] Include header file.
+#include "lab23.h"
   
 int main(){
 	srand(time(0));
@@ -9,18 +9,17 @@ int main(){
 	Unit hero("Hero",name);
 	
 	Equipment sword(0,8,4);
-	// [Missing Code 2]  Create Equipment axes, shield and armor here
+	Equipment axes(0,16,-3);
+	Equipment shield(0,-1,7);
+	Equipment armor(25,-2,2);
+	Equipment *item[5] = {NULL,&sword,&axes,&shield,&armor};
 
-	
-	
-	char eq;	
+	char eq[20] = {};	
 	cout << " [1] Sword \n [2] Axes \n [3] Shield \n [4] Armor \n";
 	cout << "Please selet your equipment: ";
 	cin >> eq;
-	// [Missing Code 3] Equip a selected equipment to the hero. 
+	hero.equip(item[atoi(eq)]);
 
-	
-	
 	Unit mons("Monster","Kraken");
 	
 	int turn_count = 1;
@@ -53,11 +52,11 @@ int main(){
 		if(player_action == 'H') p = hero.heal();
 		
 		if(player_action == 'C'){
-			char eq;	
+			char eq[20] = {};	
 			cout << " [1] Sword \n [2] Axes \n [3] Shield \n [4] Armor \n";
 			cout << "Please select your equipment: ";
 			cin >> eq;
-			// [Missing Code 3] Equip a selected equipment to the hero.
+			hero.equip(item[atoi(eq)]);
 
 			
 		}
